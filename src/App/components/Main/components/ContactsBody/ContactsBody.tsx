@@ -1,12 +1,13 @@
 import './ContactsBody.css'
 import { ContactItem } from '../ContactItem';
-import { Contacts } from '../../models/Contacts'
+import { Contacts } from '../../models/Contacts';
 
+type DataProps = {
+    data: Contacts[];
+}
 
-export const ContactsBody = () => {
-    const data: Contacts[] = [ ]
+export const ContactsBody = ({data}: DataProps) => {  
 
-    
     return <>
                 {data.length !== 0 ?
                     <ul className='contact__items'>
