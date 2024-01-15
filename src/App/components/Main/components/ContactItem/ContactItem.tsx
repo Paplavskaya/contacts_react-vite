@@ -10,7 +10,8 @@ type ContactItemProps = {
 export const ContactItem = ({item}: ContactItemProps) => {
     const {id, firstname, lastname, phone, address} = item;
 
-    const { handleDelete } = useContext(ContactIdContext)
+    const context = useContext(ContactIdContext)
+    const handleDeleteClick = context!.handleDelete
 
     return <li className='contact__item' >
                 <div className='item__firstname'>
@@ -30,7 +31,7 @@ export const ContactItem = ({item}: ContactItemProps) => {
                     {address}
                 </div>
                 <div className='item__btns'>
-                    <button className='btn__delete btn' onClick={() => handleDelete(id)}>Удалить</button> 
+                    <button className='btn__delete btn' onClick={() => handleDeleteClick(id)}>Удалить</button> 
                     <button className='btn__edit btn'>Редактировать</button>
                 </div> 
             </li>
